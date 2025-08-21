@@ -13,7 +13,7 @@
   <ItemGroup>
     <ProjectReference Include="..\AyazDuru.Samples.Keycloak.NotificationApiService\AyazDuru.Samples.Keycloak.NotificationApiService.csproj" />
     <ProjectReference Include="..\AyazDuru.Samples.Keycloak.ProductApiService\AyazDuru.Samples.Keycloak.ProductApiService.csproj" />
-    <ProjectReference Include="..\BlazorWebAppOidc\BlazorWebAppOidc.csproj" />
+    <ProjectReference Include="..\AyazDuru.Samples.Keycloak.Blazor\AyazDuru.Samples.Keycloak.Blazor.csproj" />
   </ItemGroup>
 
   <ItemGroup>

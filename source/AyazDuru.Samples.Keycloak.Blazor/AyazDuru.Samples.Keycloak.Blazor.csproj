@@ -7,7 +7,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\AyazDuru.Samples.Keycloak.ServiceDefaults\AyazDuru.Samples.Keycloak.ServiceDefaults.csproj" />
-    <ProjectReference Include="..\BlazorWebAppOidc.Client\BlazorWebAppOidc.Client.csproj" />
+    <ProjectReference Include="..\AyazDuru.Samples.Keycloak.Blazor.Client\AyazDuru.Samples.Keycloak.Blazor.Client.csproj" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.OpenIdConnect" Version="9.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="9.0.0" />
   </ItemGroup>

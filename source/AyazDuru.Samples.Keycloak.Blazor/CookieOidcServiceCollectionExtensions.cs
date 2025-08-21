@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 using Microsoft.IdentityModel.Protocols.OpenIdConnect;
-using BlazorWebAppOidc;
+using AyazDuru.Samples.Keycloak.Blazor;
 
 namespace Microsoft.Extensions.DependencyInjection;
 

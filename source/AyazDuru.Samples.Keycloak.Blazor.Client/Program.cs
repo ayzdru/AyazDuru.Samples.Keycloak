@@ -1,5 +1,5 @@
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
-using BlazorWebAppOidc.Client.Product;
+using AyazDuru.Samples.Keycloak.Blazor.Client.Product;
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
 

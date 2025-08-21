@@ -1,11 +1,11 @@
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Protocols.OpenIdConnect;
-using BlazorWebAppOidc;
-using BlazorWebAppOidc.Components;
+using AyazDuru.Samples.Keycloak.Blazor;
+using AyazDuru.Samples.Keycloak.Blazor.Components;
 using System.IdentityModel.Tokens.Jwt;
-using BlazorWebAppOidc.Client.Product;
-using BlazorWebAppOidc.Product;
+using AyazDuru.Samples.Keycloak.Blazor.Client.Product;
+using AyazDuru.Samples.Keycloak.Blazor.Product;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -90,12 +90,12 @@ productsApi.MapGet("/", async ([FromServices] IProduct product) =>
     return await product.GetProductsAsync();
 });
 
-productsApi.MapPost("/", async ([FromServices] IProduct product, [FromBody] BlazorWebAppOidc.Client.Product.Product newProduct) =>
+productsApi.MapPost("/", async ([FromServices] IProduct product, [FromBody] AyazDuru.Samples.Keycloak.Blazor.Client.Product.Product newProduct) =>
 {
     return await product.CreateProductAsync(newProduct);
 });
 
-productsApi.MapPut("/{id:guid}", async ([FromServices] IProduct product, Guid id, [FromBody] BlazorWebAppOidc.Client.Product.Product updatedProduct) =>
+productsApi.MapPut("/{id:guid}", async ([FromServices] IProduct product, Guid id, [FromBody] AyazDuru.Samples.Keycloak.Blazor.Client.Product.Product updatedProduct) =>
 {
     updatedProduct.Id = id;
     return await product.UpdateProductAsync(updatedProduct);
@@ -113,6 +113,6 @@ app.MapGroup("/authentication").MapLoginAndLogout(scheme);
 app.MapRazorComponents<App>()
     .AddInteractiveServerRenderMode()
     .AddInteractiveWebAssemblyRenderMode()
-    .AddAdditionalAssemblies(typeof(BlazorWebAppOidc.Client._Imports).Assembly);
+    .AddAdditionalAssemblies(typeof(AyazDuru.Samples.Keycloak.Blazor.Client._Imports).Assembly);
 
 app.Run();

@@ -1,7 +1,7 @@
-using BlazorWebAppOidc.Client.Product;
+using AyazDuru.Samples.Keycloak.Blazor.Client.Product;
 using System.Net.Http.Json;
 
-namespace BlazorWebAppOidc.Product;
+namespace AyazDuru.Samples.Keycloak.Blazor.Product;
 
 internal sealed class ServerProduct(IHttpClientFactory clientFactory) : IProduct
 {

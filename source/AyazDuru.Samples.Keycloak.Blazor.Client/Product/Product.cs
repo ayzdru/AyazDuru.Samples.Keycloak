@@ -1,4 +1,4 @@
-namespace BlazorWebAppOidc.Client.Product;
+namespace AyazDuru.Samples.Keycloak.Blazor.Client.Product;
 
 public sealed class Product
 {

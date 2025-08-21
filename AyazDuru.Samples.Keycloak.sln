@@ -13,9 +13,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AyazDuru.Samples.Keycloak.P
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AyazDuru.Samples.Keycloak.NotificationApiService", "source\AyazDuru.Samples.Keycloak.NotificationApiService\AyazDuru.Samples.Keycloak.NotificationApiService.csproj", "{68CB78D1-4A3E-AD4F-342A-FEB1FAA93304}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorWebAppOidc", "source\BlazorWebAppOidc\BlazorWebAppOidc.csproj", "{F8022FB0-AB25-98BF-8833-C877C97D8D88}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AyazDuru.Samples.Keycloak.Blazor", "source\AyazDuru.Samples.Keycloak.Blazor\AyazDuru.Samples.Keycloak.Blazor.csproj", "{F8022FB0-AB25-98BF-8833-C877C97D8D88}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorWebAppOidc.Client", "source\BlazorWebAppOidc.Client\BlazorWebAppOidc.Client.csproj", "{0B5CAC61-0BB5-3C83-902E-E617B7DC94B6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AyazDuru.Samples.Keycloak.Blazor.Client", "source\AyazDuru.Samples.Keycloak.Blazor.Client\AyazDuru.Samples.Keycloak.Blazor.Client.csproj", "{0B5CAC61-0BB5-3C83-902E-E617B7DC94B6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

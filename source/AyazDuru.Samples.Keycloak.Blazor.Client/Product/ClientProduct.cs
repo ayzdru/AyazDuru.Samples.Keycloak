@@ -1,6 +1,6 @@
 using System.Net.Http.Json;
 
-namespace BlazorWebAppOidc.Client.Product;
+namespace AyazDuru.Samples.Keycloak.Blazor.Client.Product;
 
 internal sealed class ClientProduct(HttpClient httpClient) : IProduct
 {

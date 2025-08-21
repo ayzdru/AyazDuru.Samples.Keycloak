@@ -20,7 +20,7 @@ var notificationApiService = builder.AddProject<Projects.AyazDuru_Samples_Keyclo
 
 
 
-builder.AddProject<Projects.BlazorWebAppOidc>("webfrontend")
+builder.AddProject<Projects.AyazDuru_Samples_Keycloak_Blazor>("webfrontend")
     .WithExternalHttpEndpoints()
     .WithHttpHealthCheck("/health")    
     .WithReference(productApiService)

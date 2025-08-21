@@ -1,7 +1,7 @@
 ﻿using System.Net.Http.Headers;
 using Microsoft.AspNetCore.Authentication;
 
-namespace BlazorWebAppOidc;
+namespace AyazDuru.Samples.Keycloak.Blazor;
 
 public class TokenHandler(IHttpContextAccessor httpContextAccessor) : 
     DelegatingHandler
