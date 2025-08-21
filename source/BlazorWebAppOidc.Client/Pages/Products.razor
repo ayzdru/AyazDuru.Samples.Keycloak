@@ -1,0 +1,165 @@
+@page "/products"
+@inject IProduct ProductService
+
+@using BlazorWebAppOidc.Client.Product
+
+<h3>Products</h3>
+
+<button class="btn btn-primary" @onclick="ShowCreateModal">Create Product</button>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Created At</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var product in products)
+        {
+            <tr>
+                <td>@product.Name</td>
+                <td>@product.Price</td>
+                <td>@product.CreatedAt</td>
+                <td>
+                    <button class="btn btn-sm btn-warning" @onclick="() => ShowEditModal(product)">Edit</button>
+                    <button class="btn btn-sm btn-danger" @onclick="() => ShowDeleteModal(product)">Delete</button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<!-- Create/Edit Modal -->
+@if (isModalOpen)
+{
+    <div class="modal show d-block" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">@modalTitle</h5>
+                    <button type="button" class="btn-close" @onclick="CloseModal"></button>
+                </div>
+                <div class="modal-body">
+                    <input class="form-control mb-2" placeholder="Name" @bind="modalProduct.Name" />
+                    <input class="form-control mb-2" type="number" placeholder="Price" @bind="modalProduct.Price" />
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" @onclick="CloseModal">Cancel</button>
+                    <button class="btn btn-primary" @onclick="SaveProduct">@modalActionText</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-backdrop show"></div>
+}
+
+<!-- Delete Modal -->
+@if (isDeleteModalOpen)
+{
+    <div class="modal show d-block" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Delete Product</h5>
+                    <button type="button" class="btn-close" @onclick="CloseDeleteModal"></button>
+                </div>
+                <div class="modal-body">
+                    Are you sure you want to delete <strong>@deleteProduct?.Name</strong>?
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" @onclick="CloseDeleteModal">Cancel</button>
+                    <button class="btn btn-danger" @onclick="DeleteProductConfirmed">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-backdrop show"></div>
+}
+
+@code {
+    List<Product> products = new();
+    bool isModalOpen = false;
+    bool isDeleteModalOpen = false;
+    string modalTitle = "";
+    string modalActionText = "";
+    Product modalProduct = new();
+    Product? deleteProduct;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadProducts();
+    }
+
+    async Task LoadProducts()
+    {
+        products = (await ProductService.GetProductsAsync()).ToList();
+    }
+
+    void ShowCreateModal()
+    {
+        modalTitle = "Create Product";
+        modalActionText = "Create";
+        modalProduct = new Product();
+        isModalOpen = true;
+    }
+
+    void ShowEditModal(Product product)
+    {
+        modalTitle = "Edit Product";
+        modalActionText = "Save";
+        modalProduct = new Product
+        {
+            Id = product.Id,
+            Name = product.Name,
+            Price = product.Price,
+            UserId = product.UserId,
+            CreatedAt = product.CreatedAt
+        };
+        isModalOpen = true;
+    }
+
+    void CloseModal()
+    {
+        isModalOpen = false;
+    }
+
+    async Task SaveProduct()
+    {
+        if (modalProduct.Id == Guid.Empty)
+        {
+            // Create
+            await ProductService.CreateProductAsync(modalProduct);
+        }
+        else
+        {
+            // Edit
+            await ProductService.UpdateProductAsync(modalProduct);
+        }
+        await LoadProducts();
+        isModalOpen = false;
+    }
+
+    void ShowDeleteModal(Product product)
+    {
+        deleteProduct = product;
+        isDeleteModalOpen = true;
+    }
+
+    void CloseDeleteModal()
+    {
+        isDeleteModalOpen = false;
+    }
+
+    async Task DeleteProductConfirmed()
+    {
+        if (deleteProduct != null)
+        {
+            await ProductService.DeleteProductAsync(deleteProduct.Id);
+            await LoadProducts();
+        }
+        isDeleteModalOpen = false;
+    }
+}

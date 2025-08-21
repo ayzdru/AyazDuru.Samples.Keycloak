@@ -1,0 +1,6 @@
+@AyazDuru.Samples.Keycloak.NotificationApiService_HostAddress = http://localhost:5018
+
+GET {{AyazDuru.Samples.Keycloak.NotificationApiService_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

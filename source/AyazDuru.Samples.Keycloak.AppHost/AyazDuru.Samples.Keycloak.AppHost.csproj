@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <Sdk Name="Aspire.AppHost.Sdk" Version="9.3.1" />
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <UserSecretsId>46be3b64-106d-4569-af12-ce272c15eaa7</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AyazDuru.Samples.Keycloak.NotificationApiService\AyazDuru.Samples.Keycloak.NotificationApiService.csproj" />
+    <ProjectReference Include="..\AyazDuru.Samples.Keycloak.ProductApiService\AyazDuru.Samples.Keycloak.ProductApiService.csproj" />
+    <ProjectReference Include="..\BlazorWebAppOidc\BlazorWebAppOidc.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Aspire.Hosting.AppHost" Version="9.4.1" />
+    <PackageReference Include="Aspire.Hosting.Keycloak" Version="9.4.1-preview.1.25408.4" />
+    <PackageReference Include="Aspire.Hosting.RabbitMQ" Version="9.4.1" />
+  </ItemGroup>
+
+</Project>
